@@ -10,7 +10,12 @@ package interfaces;
  *  @created    květen 2021
  */
 public interface IItem {
-    public String OnInspect();
+    public String OnInspect(
+
+
+
+
+    );
 
     public String OnUse();
 }

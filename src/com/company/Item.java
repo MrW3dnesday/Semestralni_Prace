@@ -8,13 +8,15 @@ public class Item implements IItem {
     private String itemDescription;
 
 
+
     @Override
     public String OnInspect() {
-        return null;
+        return itemDescription;
     }
 
     @Override
     public String OnUse() {
-        return null;
+       String x=itemName+"není nijak pooužitelná nebo cená.";
+       return x;
     }
 }
