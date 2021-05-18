@@ -1,7 +1,5 @@
 package interfaces;
 
-import com.company.BasicRoom;
-
 /*
  *  Interface ICommand - TODO
  *
@@ -11,6 +9,7 @@ import com.company.BasicRoom;
  *  @version    0.01a
  *  @created    květen 2021
  */
-public interface IMoveable {
-    public String OnMove(BasicRoom nextRoom);
+public interface IMovement {
+    public String OnMove(IRoom nextRoom);
+    public IRoom GetCurrentRoom();
 }

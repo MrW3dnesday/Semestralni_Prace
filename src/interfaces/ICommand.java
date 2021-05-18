@@ -1,7 +1,8 @@
 package interfaces;
 
-import com.company.AdvancedRoom;
-import com.company.BasicRoom;
+import com.company.Player;
+
+import java.util.Scanner;
 
 /*
  *  Interface ICommand - TODO
@@ -13,13 +14,12 @@ import com.company.BasicRoom;
  *  @created    květen 2021
  */
 public interface ICommand {
+
     /*
      *  Metoda Execute - TODO
      *
      * @author Dan Šebek
      */
-    public void Execute(Object interact);
-
-
-
+    public void Execute(Player player, Scanner scanner);
+    public String GetCommandName();
 }

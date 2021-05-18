@@ -1,4 +1,6 @@
 package com.company;
 
-public class AdvancedRoom extends BasicRoom{
+import base.classes.BasicRoom;
+
+public class AdvancedRoom extends BasicRoom {
 }
