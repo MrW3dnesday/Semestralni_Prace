@@ -1,5 +1,8 @@
 package interfaces;
 
+import com.company.AdvancedRoom;
+import com.company.BasicRoom;
+
 /*
  *  Interface ICommand - TODO
  *
@@ -16,4 +19,7 @@ public interface ICommand {
      * @author Dan Šebek
      */
     public void Execute(Object interact);
+
+
+
 }

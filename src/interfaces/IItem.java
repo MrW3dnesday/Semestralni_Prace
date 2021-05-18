@@ -11,5 +11,6 @@ package interfaces;
  */
 public interface IItem {
     public String OnInspect();
+
     public String OnUse();
 }
