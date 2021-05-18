@@ -1,16 +1,16 @@
 package com.company;
 
+/*
+ *  Třída Main - Zajišťuje spuštení a inicializaci hry
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class Main {
-
-
-    //PatO vydis tuhle mrdku
-
     public static void main(String[] args) {
-	// TODO
-    //naser si dane xD]
-
-//to vis ze jo ty hovno
-
 
     }
 }
