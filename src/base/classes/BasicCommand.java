@@ -19,7 +19,7 @@ public class BasicCommand implements ICommand {
         this.commandDescription = commandDescription;
     }
     @Override
-    public void Execute(Player player, Scanner scanner){
+    public void Execute(){
         System.out.println("BASE CLASS");
     }
 
@@ -27,4 +27,7 @@ public class BasicCommand implements ICommand {
     public String GetCommandName(){
         return  commandName;
     }
+
+    @Override
+    public String GetCommandDescription(){return commandDescription;}
 }

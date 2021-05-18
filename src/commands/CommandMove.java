@@ -1,11 +1,11 @@
 package commands;
 
+import base.classes.BasicRoom;
+import com.company.GamePlan;
 import com.company.Player;
+import com.company.UserInput;
 import interfaces.ICommand;
-import interfaces.IRoom;
 import base.classes.BasicCommand;
-
-import java.util.Scanner;
 
 public class CommandMove extends BasicCommand implements ICommand  {
 
@@ -13,10 +13,17 @@ public class CommandMove extends BasicCommand implements ICommand  {
         super(commandName,commandDescription);
     }
     @Override
-    public void Execute(Player player, Scanner scanner) {
-        System.out.print(player.GetCurrentRoom().ShowConnectedRooms() + "\nMístnost:");
-        String roomName = scanner.nextLine();
-        IRoom room = player.GetCurrentRoom().GetConnectedRooms().get(roomName);
-        System.out.println(player.OnMove(room));
+    public void Execute() {
+        System.out.print(GamePlan.GetPlayer().GetCurrentRoom().ShowConnectedRooms() + "\n" + "Místnost :");
+        String roomName = UserInput.ReadUserInput();
+        //IRoom room = player.GetCurrentRoom().GetConnectedRooms().get(roomName);
+        BasicRoom room = GamePlan.GetPlayer().GetCurrentRoom().GetConnectedRoom(roomName);
+        if(room != null){
+            GamePlan.GetPlayer().OnMove(room);
+            System.out.print("Přecházíš do " + room.GetRoomName() + "...");
+        }else{
+            System.out.print("Do takové místnosti odsud nemůžeš přejít, promiň...");
+        }
+        System.out.println();
     }
 }

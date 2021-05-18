@@ -28,16 +28,6 @@ public class Item implements IItem {
     }
 
     @Override
-    public String OnPutInBackpack() {
-        return null;
-    }
-
-    @Override
-    public String OnTakeOutBackpack() {
-        return null;
-    }
-
-    @Override
     public String GetItemName(){
         return  itemName;
     }

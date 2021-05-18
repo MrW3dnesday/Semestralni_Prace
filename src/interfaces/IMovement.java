@@ -10,6 +10,4 @@ package interfaces;
  *  @created    květen 2021
  */
 public interface IMovement {
-    public String OnMove(IRoom nextRoom);
-    public IRoom GetCurrentRoom();
 }
