@@ -1,4 +1,4 @@
-package com.company;
+package interfaces;
 
 /*
  *  Interface ICommand - TODO
@@ -10,5 +10,10 @@ package com.company;
  *  @created    květen 2021
  */
 public interface ICommand {
-    public void Execute();
+    /*
+     *  Metoda Execute - TODO
+     *
+     * @author Dan Šebek
+     */
+    public void Execute(Object interact);
 }

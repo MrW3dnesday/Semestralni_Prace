@@ -1,4 +1,4 @@
-package com.company;
+package interfaces;
 
 /*
  *  Interface IItem - TODO
@@ -11,4 +11,5 @@ package com.company;
  */
 public interface IItem {
     public String OnInspect();
+    public String OnUse();
 }
