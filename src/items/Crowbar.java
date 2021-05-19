@@ -1,9 +1,9 @@
 package items;
 
+import base.classes.Command;
 import base.classes.Item;
 import com.company.GamePlan;
 import commands.CommandAttack;
-import interfaces.ICommand;
 import interfaces.IItem;
 
 public class Crowbar extends Item implements IItem {
@@ -20,7 +20,7 @@ public class Crowbar extends Item implements IItem {
 
     @Override
     public String OnItemTakeOutBackpack(){
-        ICommand command = GamePlan.commands.remove("ATTACK");
+        Command command = GamePlan.commands.remove("ATTACK");
         return  "COMMAND REMOVED: " + command.GetCommandName() + "\n" + super.OnItemTakeOutBackpack();
     }
 }

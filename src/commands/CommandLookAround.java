@@ -2,9 +2,8 @@ package commands;
 
 import base.classes.Command;
 import com.company.GamePlan;
-import interfaces.ICommand;
 
-public class CommandLookAround extends Command implements ICommand {
+public class CommandLookAround extends Command{
     public CommandLookAround(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

@@ -3,12 +3,11 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
-import interfaces.ICommand;
 import interfaces.IItem;
 
 import java.util.Locale;
 
-public class CommandInspect extends Command implements ICommand {
+public class CommandInspect extends Command{
     public CommandInspect(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

@@ -1,9 +1,9 @@
 package com.company;
 
 import base.classes.BasicRoom;
+import base.classes.Command;
 import base.classes.Item;
 import commands.*;
-import interfaces.ICommand;
 import interfaces.IItem;
 import items.Crowbar;
 import items.Medkit;
@@ -19,7 +19,7 @@ public class GamePlan {
 
     public static HashMap<String,IItem> generatedItems;
     HashMap<String,BasicRoom> generatedRooms;
-    public static HashMap<String,ICommand> commands;
+    public static HashMap<String,Command> commands;
     public static LinkedList<Mimic> mimics;
     public static boolean run;
     public static boolean restart;
@@ -32,7 +32,7 @@ public class GamePlan {
 
         generatedItems = new HashMap<String,IItem>();
         generatedRooms = new HashMap<String,BasicRoom>();
-        commands = new HashMap<String,ICommand>();
+        commands = new HashMap<String, Command>();
         mimics = new LinkedList<Mimic>();
 
     }
@@ -96,7 +96,7 @@ public class GamePlan {
             txtCommand = txtCommand.toUpperCase(Locale.ROOT);
 
             //commands.get(command).Execute();
-            ICommand command = commands.get(txtCommand);
+            Command command = commands.get(txtCommand);
             if(command != null){
                 command.Execute();
             }else{
@@ -142,7 +142,7 @@ public class GamePlan {
         String temp = "";
         temp += "=====================================\n";
         for(String key: commands.keySet()){
-            ICommand command = commands.get(key);
+            Command command = commands.get(key);
             temp += command.GetCommandName() + " - " + command.GetCommandDescription() + "\n";
         }
         temp = temp.substring(0,temp.length()-1);

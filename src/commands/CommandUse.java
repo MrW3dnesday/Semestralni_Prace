@@ -4,10 +4,9 @@ import data.structures.OnUseReturn;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
-import interfaces.ICommand;
 import interfaces.IItem;
 
-public class CommandUse extends Command implements ICommand {
+public class CommandUse extends Command{
     public CommandUse(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

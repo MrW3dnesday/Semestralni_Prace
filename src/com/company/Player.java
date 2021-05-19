@@ -2,9 +2,8 @@ package com.company;
 
 import base.classes.BasicRoom;
 import commands.CommandRestart;
-import interfaces.IMovement;
 
-public class Player implements IMovement {
+public class Player {
 
     BasicRoom currentRoom;
 

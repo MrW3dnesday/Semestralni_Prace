@@ -3,10 +3,9 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
-import interfaces.ICommand;
 import interfaces.IItem;
 
-public class CommandAttack extends Command implements ICommand {
+public class CommandAttack extends Command{
     public CommandAttack(String commandName,String commandDescription){
         super(commandName,commandDescription);
     }

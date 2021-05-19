@@ -3,10 +3,9 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
-import interfaces.ICommand;
 import interfaces.IItem;
 
-public class CommandPutInBackpack extends Command implements ICommand {
+public class CommandPutInBackpack extends Command{
     public CommandPutInBackpack(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

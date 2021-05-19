@@ -2,9 +2,8 @@ package commands;
 
 import base.classes.Command;
 import com.company.GamePlan;
-import interfaces.ICommand;
 
-public class CommandRestart extends Command implements ICommand {
+public class CommandRestart extends Command{
     public CommandRestart(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }
