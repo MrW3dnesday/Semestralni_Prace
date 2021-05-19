@@ -12,8 +12,8 @@ public class CommandTerminateGame extends BasicCommand implements ICommand {
     }
 
     @Override
-    public void Execute(Player player, Scanner scanner){
-        System.out.println("Terminating game, thank you for playing");
+    public void Execute(){
+        System.out.println("Hra se vypíná... Díky že jsi mě vyzkoušel!");
         System.exit(0);
     }
 

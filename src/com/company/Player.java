@@ -1,29 +1,28 @@
 package com.company;
 
+import base.classes.BasicRoom;
 import interfaces.IMovement;
-import interfaces.IRoom;
 
 public class Player implements IMovement {
-    IRoom currentRoom;
+    BasicRoom currentRoom;
 
     Backpack backpack;
 
-    public Player(IRoom startRoom){
+    public Player(BasicRoom startRoom){
         this.currentRoom = startRoom;
+        this.backpack = new Backpack(5);
     }
 
-    @Override
-    public String OnMove(IRoom nextRoom){
-        if(nextRoom != null){
-            this.currentRoom = nextRoom;
-            return "Moved to next room" + "\n" + GetRoomInfo();
-        }else {
-            return "There is not room like that, choose some else room please, sorry...";
-        }
+    public void OnMove(BasicRoom nextRoom){
+        this.currentRoom = nextRoom;
     }
-    @Override
-    public IRoom GetCurrentRoom(){
+
+    public BasicRoom GetCurrentRoom(){
         return  currentRoom;
+    }
+
+    public Backpack GetPlayerBackpack(){
+        return backpack;
     }
 
     private String GetRoomInfo(){

@@ -20,6 +20,7 @@ public interface ICommand {
      *
      * @author Dan Šebek
      */
-    public void Execute(Player player, Scanner scanner);
+    public void Execute();
     public String GetCommandName();
+    public String GetCommandDescription();
 }

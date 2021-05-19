@@ -14,9 +14,5 @@ public interface IItem {
 
     public String OnUse();
 
-    public String OnPutInBackpack();
-
-    public String OnTakeOutBackpack();
-
     public String GetItemName();
 }

@@ -18,10 +18,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GamePlan gamePlan = new GamePlan(scanner);
 
-        System.out.println("For testing: TEST, For normal gameplay just hit enter");
+        System.out.println("For testing: TEST, For normal gameplay just hit enter.");
         System.out.print("Decision: ");
 
-        String command = scanner.nextLine();
+        String command = UserInput.ReadUserInput();
         command = command.toUpperCase(Locale.ROOT);
 
         if(command.equals("TEST")){
