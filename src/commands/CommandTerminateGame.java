@@ -1,6 +1,7 @@
 package commands;
 
 import base.classes.BasicCommand;
+import com.company.GamePlan;
 import com.company.Player;
 import interfaces.ICommand;
 
@@ -13,6 +14,7 @@ public class CommandTerminateGame extends BasicCommand implements ICommand {
 
     @Override
     public void Execute(){
+        GamePlan.run = false;
         System.out.println("Hra se vypíná... Díky že jsi mě vyzkoušel!");
         System.exit(0);
     }

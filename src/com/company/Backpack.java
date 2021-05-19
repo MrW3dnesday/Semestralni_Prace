@@ -15,17 +15,32 @@ public class Backpack {
     }
 
     public char OnPutIn(IItem item){
-        if(itemsInBackpack.size() <= maxItems){
-           if(!itemsInBackpack.containsKey(item.GetItemName())){
-               itemsInBackpack.put(item.GetItemName(),item);
-               return 'S';
-           }else{
-               return 'C';
-           }
-        }else{
-            return 'F';
+        if(item.CanBeInBackpack()){
+            if(itemsInBackpack.size() <= maxItems){
+                if(!itemsInBackpack.containsKey(item.GetItemName())){
+                    itemsInBackpack.put(item.GetItemName(),item);
+                    return 'S';
+                }else{
+                    return 'C';
+                }
+            }else{
+                return 'F';
+            }
+        }else {
+            return 'S';
         }
+
     }
+
+    public char HaveInteractableItem(){
+        int temp = itemsInBackpack.size();
+        if(temp == 0){
+            return 'E';
+        }
+        return 'Y';
+    }
+
+
 
     public IItem OnTakeOut(String itemName){
         IItem removedItem = itemsInBackpack.remove(itemName);

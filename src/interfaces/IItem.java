@@ -1,5 +1,7 @@
 package interfaces;
 
+import data.structures.OnUseReturn;
+
 /*
  *  Interface IItem - TODO
  *
@@ -12,7 +14,17 @@ package interfaces;
 public interface IItem {
     public String OnInspect();
 
-    public String OnUse();
+    public OnUseReturn OnUse();
 
     public String GetItemName();
+
+    public String GetItemDescription();
+
+    public String OnItemPutInBackpack();
+
+    public String OnItemTakeOutBackpack();
+
+    public String OnAttack();
+
+    public boolean CanBeInBackpack();
 }
