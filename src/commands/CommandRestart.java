@@ -17,6 +17,5 @@ public class CommandRestart extends BasicCommand implements ICommand {
     public void Execute(){
         GamePlan.run = false;
         GamePlan.restart = true;
-        System.out.print("Restartuji..." + "\n");
     }
 }

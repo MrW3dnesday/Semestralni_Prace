@@ -35,7 +35,7 @@ public class Player implements IMovement {
         if(wasAttacked){
             CommandRestart restart = new CommandRestart();
             restart.Execute();
-            return "Tak to je můj konec...";
+            return "Tak to je můj konec...\n";
         }else{
             wasAttacked=true;
             return "Tak tohle sakra bolí, měl bych najít lékárnu!";

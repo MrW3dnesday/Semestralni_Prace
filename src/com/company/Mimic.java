@@ -40,14 +40,14 @@ public class Mimic extends Item implements IItem {
     }
     @Override
     public String OnInspect(){
-        GamePlan.GetPlayer().OnPlayerAttacked();
-        return "Je to mimic. To bude bolet!";
+
+        return "Je to mimic. To bude bolet!" + GamePlan.GetPlayer().OnPlayerAttacked();
     }
 
     @Override
     public String OnItemPutInBackpack(){
-        GamePlan.GetPlayer().OnPlayerAttacked();
-        return "Je to mimic. Moc se jí tam nechce. To bude bolet!";
+
+        return "Je to mimic. Moc se jí tam nechce. To bude bolet!" +  GamePlan.GetPlayer().OnPlayerAttacked();
     }
 
     @Override

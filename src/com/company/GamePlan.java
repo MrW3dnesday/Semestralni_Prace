@@ -104,9 +104,11 @@ public class GamePlan {
             }
         }
         if(restart && testRun){
+            System.out.print("\nRestartuji..." + "\n");
             commands.clear();
             TestInit();
         }else if(restart){
+            System.out.print("\nRestartuji..." + "\n");
             commands.clear();
             Init();
         }
