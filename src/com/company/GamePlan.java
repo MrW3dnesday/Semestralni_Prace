@@ -103,8 +103,12 @@ public class GamePlan {
                 System.out.print("Takový příkaz tu není, promiň...");
             }
         }
-        if(restart){
+        if(restart && testRun){
             TestInit();
+            commands.clear();
+        }else if(restart){
+            Init();
+            commands.clear();
         }
     }
 

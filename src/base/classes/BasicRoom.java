@@ -86,6 +86,7 @@ public class BasicRoom{
                 itemsInRoom.remove(itemName);
             }else{
                 removedItem = itemsInRoom.get(itemName).get(itemsInRoom.get(itemName).size() - 1);
+                itemsInRoom.remove(itemName);
             }
             return removedItem;
         }
