@@ -16,14 +16,19 @@ public class CommandTakeOutBackpack extends BasicCommand implements ICommand {
 
     @Override
     public void Execute(){
-        System.out.print("Jaký předmět chceš vyndat z batohu?" + "\n" + GamePlan.GetPlayer().GetPlayerBackpack().ShowItemsInBackpack() + "\n" + "Předmět: ");
-        String itemName = UserInput.ReadUserInput();
-        IItem itemFromBackpack = GamePlan.GetPlayer().GetPlayerBackpack().OnTakeOut(itemName);
-        if(itemFromBackpack != null){
-            System.out.print("Předmět jsi vyndal z batohu.");
-            GamePlan.GetPlayer().GetCurrentRoom().OnItemAdd(itemFromBackpack);
+        if(GamePlan.GetPlayer().GetPlayerBackpack().HaveInteractableItem() == 'Y'){
+            System.out.print("Jaký předmět chceš vyndat z batohu?" + "\n" + GamePlan.GetPlayer().GetPlayerBackpack().ShowItemsInBackpack() + "\n" + "Předmět: ");
+            String itemName = UserInput.ReadUserInput();
+            IItem itemFromBackpack = GamePlan.GetPlayer().GetPlayerBackpack().OnTakeOut(itemName);
+            if(itemFromBackpack != null){
+                System.out.print(itemFromBackpack.OnItemTakeOutBackpack());
+                GamePlan.GetPlayer().GetCurrentRoom().AddItemInRoom(itemFromBackpack);
+            }else{
+                System.out.print("Takový předmět v batohu nenáš, promiň...");
+            }
         }else{
-            System.out.print("Takový předmět v batohu nenáš, promiň...");
+            System.out.print("Bohužel v batohu nic nemáš, promiň...");
         }
+
     }
 }

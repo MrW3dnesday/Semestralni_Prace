@@ -19,11 +19,12 @@ public class CommandMove extends BasicCommand implements ICommand  {
         //IRoom room = player.GetCurrentRoom().GetConnectedRooms().get(roomName);
         BasicRoom room = GamePlan.GetPlayer().GetCurrentRoom().GetConnectedRoom(roomName);
         if(room != null){
-            GamePlan.GetPlayer().OnMove(room);
+            GamePlan.MoveMimics();
             System.out.print("Přecházíš do " + room.GetRoomName() + "...");
+            System.out.print(GamePlan.GetPlayer().OnMove(room));
+
         }else{
             System.out.print("Do takové místnosti odsud nemůžeš přejít, promiň...");
         }
-        System.out.println();
     }
 }
