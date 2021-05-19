@@ -104,11 +104,11 @@ public class GamePlan {
             }
         }
         if(restart && testRun){
+            commands.clear();
             TestInit();
-            commands.clear();
         }else if(restart){
-            Init();
             commands.clear();
+            Init();
         }
     }
 
