@@ -1,10 +1,10 @@
 package commands;
 
-import base.classes.BasicCommand;
+import base.classes.Command;
 import com.company.GamePlan;
 import interfaces.ICommand;
 
-public class CommandInventory extends BasicCommand implements ICommand {
+public class CommandInventory extends Command implements ICommand {
     public CommandInventory (String commandName,String commandDescription){
         super(commandName,commandDescription);
     }

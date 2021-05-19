@@ -2,12 +2,11 @@ package commands;
 
 import base.classes.BasicRoom;
 import com.company.GamePlan;
-import com.company.Player;
 import com.company.UserInput;
 import interfaces.ICommand;
-import base.classes.BasicCommand;
+import base.classes.Command;
 
-public class CommandMove extends BasicCommand implements ICommand  {
+public class CommandMove extends Command implements ICommand  {
 
     public CommandMove(String commandName,String commandDescription){
         super(commandName,commandDescription);

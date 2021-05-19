@@ -1,6 +1,6 @@
 package commands;
 
-import base.classes.BasicCommand;
+import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
 import interfaces.ICommand;
@@ -8,7 +8,7 @@ import interfaces.IItem;
 
 import java.util.Locale;
 
-public class CommandInspect extends BasicCommand implements ICommand {
+public class CommandInspect extends Command implements ICommand {
     public CommandInspect(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

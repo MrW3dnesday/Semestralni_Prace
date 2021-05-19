@@ -1,16 +1,12 @@
 package commands;
 
-import base.classes.BasicCommand;
-import base.classes.BasicRoom;
+import base.classes.Command;
 import com.company.GamePlan;
-import com.company.Player;
 import com.company.UserInput;
 import interfaces.ICommand;
 import interfaces.IItem;
 
-import java.util.Scanner;
-
-public class CommandPutInBackpack extends BasicCommand implements ICommand {
+public class CommandPutInBackpack extends Command implements ICommand {
     public CommandPutInBackpack(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

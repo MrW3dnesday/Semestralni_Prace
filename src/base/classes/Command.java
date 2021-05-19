@@ -5,16 +5,16 @@ import interfaces.ICommand;
 
 import java.util.Scanner;
 
-public class BasicCommand implements ICommand {
+public class Command implements ICommand {
 
     String commandName;
     String commandDescription;
 
-    protected BasicCommand(){
+    protected Command(){
 
     }
 
-    protected BasicCommand(String commandName,String commandDescription){
+    protected Command(String commandName, String commandDescription){
         this.commandName = commandName;
         this.commandDescription = commandDescription;
     }
