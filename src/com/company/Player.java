@@ -45,10 +45,4 @@ public class Player implements IMovement {
     public void Heal(){
         wasAttacked = false;
     }
-
-    /*private String GetRoomInfo(){
-        return "Items in room: " + currentRoom.ShowItemsInRoom() + "\n" + "Connected rooms: " + currentRoom.ShowConnectedRooms();
-    }*/
-
-
 }
