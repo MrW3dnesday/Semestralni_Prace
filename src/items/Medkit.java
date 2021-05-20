@@ -14,6 +14,7 @@ public class Medkit extends Item implements IItem {
     public OnInteractionReturn OnUse() {
         OnInteractionReturn temp = new OnInteractionReturn(false,"Hned se cítím líp!");
         GamePlan.GetPlayer().Heal();
+        GamePlan.GetPlayer().GetPlayerBackpack().OnTakeOut("Medkit");
         return  temp;
     }
 }

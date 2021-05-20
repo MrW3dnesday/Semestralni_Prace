@@ -35,11 +35,16 @@ public class Mimic extends Item implements IItem {
     }
 
     public void OnMove(){
+        //get room that mimic can move too
         BasicRoom[] connectedRooms = currentRoom.GetConnectedRooms().values().toArray(new BasicRoom[currentRoom.GetConnectedRooms().size()]);
         Random random = new Random();
         BasicRoom newRoom = connectedRooms[random.nextInt(connectedRooms.length)];
+
+
         boolean hasMimic = false;
+
         IItem temp;
+
         if(newRoom.GetConnectedRooms().size() > 0) {
             for (String key : newRoom.GetItemsInRoom().keySet()) {
                 temp = newRoom.GetItemsInRoom().get(key).get(0);
@@ -48,14 +53,13 @@ public class Mimic extends Item implements IItem {
                 }
             }
 
+            currentRoom.OnItemRemove(this.itemName);
+            currentRoom = newRoom;
+            ChangeForm();
+            currentRoom.AddItemInRoom(this);
 
             if(hasMimic){
                 OnMove();
-            }else{
-                currentRoom.OnItemRemove(this.itemName);
-                currentRoom = newRoom;
-                ChangeForm();
-                currentRoom.AddItemInRoom(this);
             }
         }
     }
