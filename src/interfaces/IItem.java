@@ -18,6 +18,8 @@ public interface IItem {
 
     public String GetItemName();
 
+    public String GetItemEngineName();
+
     public String GetItemDescription();
 
     public String OnItemPutInBackpack();

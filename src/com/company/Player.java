@@ -34,10 +34,10 @@ public class Player {
         if(wasAttacked){
             CommandRestart restart = new CommandRestart();
             restart.Execute();
-            return "Tak to je můj konec...\n";
+            return "\nTak to je můj konec...\n";
         }else{
             wasAttacked=true;
-            return "Tak tohle sakra bolí, měl bych najít lékárnu!";
+            return "\nTak tohle sakra bolí, měl bych najít lékárnu!";
         }
     }
 

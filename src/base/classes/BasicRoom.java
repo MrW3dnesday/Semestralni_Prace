@@ -8,6 +8,7 @@ public class BasicRoom{
 
     //declare
     protected String roomName;
+    protected String roomDescription;
     protected HashMap<String,LinkedList<IItem>>itemsInRoom;
     protected HashMap<String,BasicRoom> connectedRooms;
 
@@ -18,16 +19,18 @@ public class BasicRoom{
     }
 
     //constructor for testing
-    public BasicRoom(String roomName){
+    public BasicRoom(String roomName, String roomDescription){
         this.itemsInRoom = new HashMap<String, LinkedList<IItem>>();
         this.connectedRooms = new HashMap<String,BasicRoom>();
         this.roomName = roomName;
+        this.roomDescription = roomDescription;
     }
     //constructor for game plan
-    public BasicRoom(HashMap<String,IItem> generatedListOfItems,HashMap<String,BasicRoom> connectedRooms, String roomName){
+    public BasicRoom(HashMap<String,IItem> generatedListOfItems,HashMap<String,BasicRoom> connectedRooms, String roomName,String roomDescription){
         this.itemsInRoom = new HashMap<String, LinkedList<IItem>>();
         this.connectedRooms = new HashMap<String,BasicRoom>();
         this.roomName = roomName;
+        this.roomDescription = roomDescription;
     }
 
     //Return in one string all of the items in the room
@@ -117,6 +120,12 @@ public class BasicRoom{
         return temp;
     }
 
+    public String OnItemInteract(IItem item){
+        String temp = item.GetItemName() + " s tím toho moc neudělám.";
+        return temp;
+    }
+
+
     public BasicRoom GetConnectedRoom(String roomName){
         return connectedRooms.get(roomName);
     }
@@ -126,6 +135,6 @@ public class BasicRoom{
     }
 
     public String ShowRoomInfo(){
-        return "Items in room: " + ShowItemsInRoom() + "\n" + "Connected rooms: " + ShowConnectedRooms();
+        return roomDescription + "\n" + "Věci v místnosti: " + ShowItemsInRoom() + "\n" + "Propojené místnosti: " + ShowConnectedRooms();
     }
 }

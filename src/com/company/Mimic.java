@@ -13,17 +13,21 @@ public class Mimic extends Item implements IItem {
     public BasicRoom currentRoom;
 
     public Mimic(String mimicName, String mimicDescription, BasicRoom currentRoom){
-        super(mimicName,mimicDescription,false);
+        super(mimicName,mimicDescription,"mimic",false);
         this.currentRoom = currentRoom;
     }
 
     public void ChangeForm(){
-        HashMap<String, LinkedList<IItem>> itemsInRoom = currentRoom.GetItemsInRoom();
-        for(String key:GamePlan.generatedItems.keySet()){
-            if(!currentRoom.GetItemsInRoom().containsKey(key)){
-                IItem temp = GamePlan.generatedItems.get(key);
+        IItem[] possibleItems = GamePlan.generatedItems.values().toArray(new IItem[GamePlan.generatedItems.size()]);
+        Random random = new Random();
+        boolean validForm = false;
+        IItem temp;
+        while(!validForm){
+            temp = possibleItems[random.nextInt(possibleItems.length)];
+            if(!currentRoom.GetItemsInRoom().containsKey(temp.GetItemName())){
                 this.itemName = temp.GetItemName();
                 this.itemDescription = temp.GetItemDescription();
+                validForm = true;
                 break;
             }
         }
@@ -33,10 +37,24 @@ public class Mimic extends Item implements IItem {
         BasicRoom[] connectedRooms = currentRoom.GetConnectedRooms().values().toArray(new BasicRoom[currentRoom.GetConnectedRooms().size()]);
         Random random = new Random();
         BasicRoom newRoom = connectedRooms[random.nextInt(connectedRooms.length)];
+        boolean hasMimic = false;
+        IItem temp;
+        for(String key: newRoom.GetItemsInRoom().keySet()){
+            temp = newRoom.GetItemsInRoom().get(key).get(0);
+            if(temp.GetItemEngineName().equals("mimic")){
+                hasMimic = true;
+            }
+        }
+
         currentRoom.OnItemRemove(this.itemName);
         currentRoom = newRoom;
-        ChangeForm();
-        currentRoom.AddItemInRoom(this);
+
+        if(hasMimic){
+            OnMove();
+        }else{
+            ChangeForm();
+            currentRoom.AddItemInRoom(this);
+        }
     }
     @Override
     public String OnInspect(){
