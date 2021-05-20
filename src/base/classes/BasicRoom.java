@@ -51,7 +51,7 @@ public class BasicRoom{
     public String ShowConnectedRooms(){
         String temp = "";
         for(String key: this.connectedRooms.keySet()){
-            temp += key + " ";
+            temp += "|" + key + "| ";
         }
         return temp;
     }
