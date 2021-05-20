@@ -2,6 +2,7 @@ package com.company;
 
 import base.classes.BasicRoom;
 import base.classes.Item;
+import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 import java.util.HashMap;
@@ -39,23 +40,25 @@ public class Mimic extends Item implements IItem {
         BasicRoom newRoom = connectedRooms[random.nextInt(connectedRooms.length)];
         boolean hasMimic = false;
         IItem temp;
-        for(String key: newRoom.GetItemsInRoom().keySet()){
-            temp = newRoom.GetItemsInRoom().get(key).get(0);
-            if(temp.GetItemEngineName().equals("mimic")){
-                hasMimic = true;
+        if(newRoom.GetConnectedRooms().size() > 0) {
+            for (String key : newRoom.GetItemsInRoom().keySet()) {
+                temp = newRoom.GetItemsInRoom().get(key).get(0);
+                if (temp.GetItemEngineName().equals("mimic")) {
+                    hasMimic = true;
+                }
+            }
+            currentRoom.OnItemRemove(this.itemName);
+            currentRoom = newRoom;
+
+            if(hasMimic){
+                OnMove();
+            }else{
+                ChangeForm();
+                currentRoom.AddItemInRoom(this);
             }
         }
-
-        currentRoom.OnItemRemove(this.itemName);
-        currentRoom = newRoom;
-
-        if(hasMimic){
-            OnMove();
-        }else{
-            ChangeForm();
-            currentRoom.AddItemInRoom(this);
-        }
     }
+
     @Override
     public String OnInspect(){
 
@@ -66,6 +69,12 @@ public class Mimic extends Item implements IItem {
     public String OnItemPutInBackpack(){
 
         return "Je to mimic. Moc se jí tam nechce. To bude bolet!" +  GamePlan.GetPlayer().OnPlayerAttacked();
+    }
+
+    @Override
+    public OnInteractionReturn OnInteract(){
+        OnInteractionReturn temp = new OnInteractionReturn(false,"Je to mimic. To bude bolet!");
+        return temp;
     }
 
     @Override

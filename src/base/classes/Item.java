@@ -1,6 +1,6 @@
 package base.classes;
 
-import data.structures.OnUseReturn;
+import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 public class Item implements IItem {
@@ -28,8 +28,14 @@ public class Item implements IItem {
     }
 
     @Override
-    public OnUseReturn OnUse() {
-        OnUseReturn temp = new OnUseReturn(true,itemName + ". Tohle asi nemá žádné využití.");
+    public OnInteractionReturn OnUse() {
+        OnInteractionReturn temp = new OnInteractionReturn(false,itemName + ". Tohle asi nemá žádné využití.");
+        return temp;
+    }
+
+    @Override
+    public OnInteractionReturn OnInteract(){
+        OnInteractionReturn temp = new OnInteractionReturn(false, this.itemName + " s tím toho moc neudělám.");
         return temp;
     }
 

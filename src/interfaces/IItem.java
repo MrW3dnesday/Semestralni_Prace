@@ -1,6 +1,6 @@
 package interfaces;
 
-import data.structures.OnUseReturn;
+import data.structures.OnInteractionReturn;
 
 /*
  *  Interface IItem - TODO
@@ -14,7 +14,9 @@ import data.structures.OnUseReturn;
 public interface IItem {
     public String OnInspect();
 
-    public OnUseReturn OnUse();
+    public OnInteractionReturn OnUse();
+
+    public OnInteractionReturn OnInteract();
 
     public String GetItemName();
 

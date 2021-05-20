@@ -4,7 +4,7 @@ import base.classes.Command;
 import base.classes.Item;
 import com.company.GamePlan;
 import commands.CommandAttack;
-import data.structures.OnUseReturn;
+import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 public class Crowbar extends Item implements IItem {
@@ -26,8 +26,8 @@ public class Crowbar extends Item implements IItem {
     }
 
     @Override
-    public OnUseReturn OnUse(){
-        OnUseReturn temp = new OnUseReturn(true,"Možná s tím pujde něco vypáčit.");
+    public OnInteractionReturn OnUse(){
+        OnInteractionReturn temp = new OnInteractionReturn(true,"Možná s tím pujde něco vypáčit.");
         return temp;
     }
 }
