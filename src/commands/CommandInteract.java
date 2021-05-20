@@ -3,6 +3,7 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
+import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 public class CommandInteract extends Command{
@@ -17,7 +18,11 @@ public class CommandInteract extends Command{
             String itemName = UserInput.ReadUserInput();
             IItem itemFromRoom = GamePlan.GetPlayer().GetCurrentRoom().GetItemFromRoom(itemName);
             if(itemFromRoom != null){
-                System.out.print(GamePlan.GetPlayer().GetCurrentRoom().OnItemInteract(itemFromRoom));
+                OnInteractionReturn temp = itemFromRoom.OnInteract();
+                System.out.print(temp.GetInteractText());
+                if(temp.GetInteractWithRoom()){
+                    System.out.print(GamePlan.GetPlayer().GetCurrentRoom().OnItemInteract(itemFromRoom));
+                }
             }else{
                 System.out.print("Takový předmět tu není, promiň...");
             }

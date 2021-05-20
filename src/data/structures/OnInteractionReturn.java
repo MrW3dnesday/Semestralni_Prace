@@ -1,10 +1,10 @@
 package data.structures;
 
-public class OnUseReturn {
+public class OnInteractionReturn {
     private boolean interactWithRoom;
     private String interactText;
 
-    public OnUseReturn(boolean interactWithRoom,String interactText){
+    public OnInteractionReturn(boolean interactWithRoom, String interactText){
         this.interactWithRoom = interactWithRoom;
         this.interactText = interactText;
 

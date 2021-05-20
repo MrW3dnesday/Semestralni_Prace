@@ -2,7 +2,7 @@ package items;
 
 import base.classes.Item;
 import com.company.GamePlan;
-import data.structures.OnUseReturn;
+import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 public class Medkit extends Item implements IItem {
@@ -11,8 +11,8 @@ public class Medkit extends Item implements IItem {
     }
 
     @Override
-    public OnUseReturn OnUse() {
-        OnUseReturn temp = new OnUseReturn(false,"Hned se cítím líp!");
+    public OnInteractionReturn OnUse() {
+        OnInteractionReturn temp = new OnInteractionReturn(false,"Hned se cítím líp!");
         GamePlan.GetPlayer().Heal();
         return  temp;
     }

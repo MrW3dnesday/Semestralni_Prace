@@ -1,6 +1,6 @@
 package commands;
 
-import data.structures.OnUseReturn;
+import data.structures.OnInteractionReturn;
 import base.classes.Command;
 import com.company.GamePlan;
 import com.company.UserInput;
@@ -18,7 +18,7 @@ public class CommandUse extends Command{
             String itemName = UserInput.ReadUserInput();
             IItem itemFromBackpack = GamePlan.GetPlayer().GetPlayerBackpack().GetItemInBackpack(itemName);
             if(itemFromBackpack != null){
-                OnUseReturn temp = itemFromBackpack.OnUse();
+                OnInteractionReturn temp = itemFromBackpack.OnUse();
                 System.out.print(temp.GetInteractText());
                 if(temp.GetInteractWithRoom()){
                     System.out.print("\n" + GamePlan.GetPlayer().GetCurrentRoom().OnItemUse(itemFromBackpack));
