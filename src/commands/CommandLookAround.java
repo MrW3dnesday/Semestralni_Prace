@@ -1,13 +1,9 @@
 package commands;
 
-import base.classes.BasicCommand;
+import base.classes.Command;
 import com.company.GamePlan;
-import com.company.Player;
-import interfaces.ICommand;
 
-import java.util.Scanner;
-
-public class CommandLookAround extends BasicCommand implements ICommand {
+public class CommandLookAround extends Command{
     public CommandLookAround(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }

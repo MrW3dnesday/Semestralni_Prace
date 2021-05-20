@@ -1,10 +1,9 @@
 package commands;
 
-import base.classes.BasicCommand;
+import base.classes.Command;
 import com.company.GamePlan;
-import interfaces.ICommand;
 
-public class CommandRestart extends BasicCommand implements ICommand {
+public class CommandRestart extends Command{
     public CommandRestart(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }
@@ -17,6 +16,5 @@ public class CommandRestart extends BasicCommand implements ICommand {
     public void Execute(){
         GamePlan.run = false;
         GamePlan.restart = true;
-        System.out.print("Restartuji..." + "\n");
     }
 }

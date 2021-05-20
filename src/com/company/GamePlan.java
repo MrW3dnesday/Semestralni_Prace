@@ -1,13 +1,16 @@
 package com.company;
 
 import base.classes.BasicRoom;
+import base.classes.Command;
 import base.classes.Item;
 import commands.*;
-import interfaces.ICommand;
 import interfaces.IItem;
 import items.Crowbar;
+import items.KeyCard;
 import items.Medkit;
+import rooms.Bridge;
 
+import java.security.Key;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Locale;
@@ -19,7 +22,7 @@ public class GamePlan {
 
     public static HashMap<String,IItem> generatedItems;
     HashMap<String,BasicRoom> generatedRooms;
-    public static HashMap<String,ICommand> commands;
+    public static HashMap<String,Command> commands;
     public static LinkedList<Mimic> mimics;
     public static boolean run;
     public static boolean restart;
@@ -32,7 +35,7 @@ public class GamePlan {
 
         generatedItems = new HashMap<String,IItem>();
         generatedRooms = new HashMap<String,BasicRoom>();
-        commands = new HashMap<String,ICommand>();
+        commands = new HashMap<String, Command>();
         mimics = new LinkedList<Mimic>();
 
     }
@@ -41,40 +44,57 @@ public class GamePlan {
 
     }
     public void TestInit(){
-        Item item1 = new Item("item1","item1 dsc",true);
-        Item item2 = new Item("item2", "item2 dsc", true);
-        Item item3 = new Item("item3","item3 dsc", true);
+        Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
+        Item picture = new Item("Obrázek", "Vypadá to jako fotka rodiny.", "picture",true);
+        Item box = new Item("Krabička","To vypadá, že kdysi v tom měl někdo svačinu.", "box",true);
 
-        Crowbar crowbar = new Crowbar("Crowbar", "Looks like it can smash a lot things.");
+        Crowbar crowbar = new Crowbar("Páčidlo", "Tohle by mohlo něco rozbít.");
+        Medkit medkit = new Medkit("Medkit","Věřím, že tohle mi zachrání život.");
+        KeyCard keyCard = new KeyCard("Karta","Kdybych ji někde mohl použít, určitě to něco udělá.");
 
-        Medkit medkit = new Medkit("Medkit","I think, this might save my life.");
+        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...");
+        BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...");
 
-        BasicRoom room1 = new BasicRoom("room1");
-        BasicRoom room2 = new BasicRoom("room2");
+        Bridge bridge = new Bridge("Můstek","Tady to vypadá jako by odtud veleli celý lodi.\nTřeba, když najdu kartu tak tu s ní budu moc něco otevřít.");
 
-        room1.AddItemInRoom(item1);
-        room1.AddItemInRoom(item1);
-        room1.AddItemInRoom(item2);
-        room1.AddConnectedRoom(room2);
-        room1.AddItemInRoom(crowbar);
+        entry.AddItemInRoom(cup);
+        entry.AddItemInRoom(box);
+        entry.AddItemInRoom(cup);
+        entry.AddItemInRoom(crowbar);
 
-        room2.AddItemInRoom(item2);
-        room2.AddConnectedRoom(room1);
-        room2.AddItemInRoom(medkit);
+        entry.AddConnectedRoom(medical);
 
-        generatedItems.put(item1.GetItemName(),item1);
-        generatedItems.put(item2.GetItemName(),item2);
-        generatedItems.put(item3.GetItemName(),item3);
 
-        Mimic mimic1 = new Mimic("MIMIC","MIMIC",room2);
+        medical.AddItemInRoom(cup);
+        medical.AddItemInRoom(keyCard);
+
+        medical.AddConnectedRoom(entry);
+        medical.AddConnectedRoom(bridge);
+
+        bridge.AddItemInRoom(cup);
+        bridge.AddItemInRoom(medkit);
+
+        bridge.AddConnectedRoom(medical);
+
+        generatedItems.put(cup.GetItemName(),cup);
+        generatedItems.put(box.GetItemName(),box);
+        generatedItems.put(picture.GetItemName(),picture);
+        generatedItems.put(crowbar.GetItemName(),crowbar);
+        generatedItems.put(medkit.GetItemName(),medkit);
+        generatedItems.put(keyCard.GetItemName(),keyCard);
+
+        Mimic mimic1 = new Mimic("MIMIC","MIMIC",bridge);
+        Mimic mimic2 = new Mimic("MIMIC","MIMIC",medical);
         mimic1.OnMove();
+        mimic2.OnMove();
 
         mimics.add(mimic1);
+        mimics.add(mimic2);
 
 
         InitCommands();
 
-        player = new Player(room1);
+        player = new Player(entry);
 
         run = true;
         restart = false;
@@ -96,7 +116,7 @@ public class GamePlan {
             txtCommand = txtCommand.toUpperCase(Locale.ROOT);
 
             //commands.get(command).Execute();
-            ICommand command = commands.get(txtCommand);
+            Command command = commands.get(txtCommand);
             if(command != null){
                 command.Execute();
             }else{
@@ -104,9 +124,11 @@ public class GamePlan {
             }
         }
         if(restart && testRun){
+            System.out.print("\nRestartuji..." + "\n");
             commands.clear();
             TestInit();
         }else if(restart){
+            System.out.print("\nRestartuji..." + "\n");
             commands.clear();
             Init();
         }
@@ -123,6 +145,7 @@ public class GamePlan {
         CommandUse commandUse = new CommandUse("USE","Use item, or use it to interact with with the item in something room.");
         CommandInventory commandInventory = new CommandInventory("INV","Show content of your backpack");
         CommandRestart commandRestart = new CommandRestart("RESTART","Restart game.");
+        CommandInteract commandInteract = new CommandInteract("INTERACT","Interact with item in room.");
 
         commands.put(commandHelp.GetCommandName(),commandHelp);
         commands.put(commandLookAround.GetCommandName(),commandLookAround);
@@ -134,13 +157,14 @@ public class GamePlan {
         commands.put(commandUse.GetCommandName(),commandUse);
         commands.put(commandInventory.GetCommandName(),commandInventory);
         commands.put(commandRestart.GetCommandName(),commandRestart);
+        commands.put(commandInteract.GetCommandName(),commandInteract);
     }
 
     public static String GetUserHelp(){
         String temp = "";
         temp += "=====================================\n";
         for(String key: commands.keySet()){
-            ICommand command = commands.get(key);
+            Command command = commands.get(key);
             temp += command.GetCommandName() + " - " + command.GetCommandDescription() + "\n";
         }
         temp = temp.substring(0,temp.length()-1);

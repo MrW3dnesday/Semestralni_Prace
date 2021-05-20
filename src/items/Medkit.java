@@ -7,7 +7,7 @@ import interfaces.IItem;
 
 public class Medkit extends Item implements IItem {
     public Medkit(String itemName, String itemDescription){
-        super(itemName,itemDescription,true);
+        super(itemName,itemDescription,"medkit",true);
     }
 
     @Override

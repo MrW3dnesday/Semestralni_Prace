@@ -5,12 +5,14 @@ import interfaces.IItem;
 
 public class Item implements IItem {
 
+    protected String itemEngineName;
     protected String itemName;
     protected String itemDescription;
     protected boolean canBeInBackpack;
 
-    public Item(String itemName, String itemDescription, boolean canBeInBackpack){
+    public Item(String itemName, String itemDescription,String itemEngineName, boolean canBeInBackpack){
         this.itemName = itemName;
+        this.itemEngineName = itemEngineName;
         this.itemDescription = itemDescription;
         this.canBeInBackpack = canBeInBackpack;
     }
@@ -36,6 +38,10 @@ public class Item implements IItem {
         return  itemName;
     }
 
+    @Override
+    public String GetItemEngineName(){
+        return itemEngineName;
+    }
     @Override
     public String GetItemDescription(){
         return itemDescription;

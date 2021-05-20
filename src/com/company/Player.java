@@ -2,9 +2,8 @@ package com.company;
 
 import base.classes.BasicRoom;
 import commands.CommandRestart;
-import interfaces.IMovement;
 
-public class Player implements IMovement {
+public class Player {
 
     BasicRoom currentRoom;
 
@@ -35,10 +34,10 @@ public class Player implements IMovement {
         if(wasAttacked){
             CommandRestart restart = new CommandRestart();
             restart.Execute();
-            return "Tak to je můj konec...";
+            return "\nTak to je můj konec...\n";
         }else{
             wasAttacked=true;
-            return "Tak tohle sakra bolí, měl bych najít lékárnu!";
+            return "\nTak tohle sakra bolí, měl bych najít lékárnu!";
         }
     }
 

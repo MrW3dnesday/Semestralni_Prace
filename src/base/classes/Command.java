@@ -1,33 +1,28 @@
 package base.classes;
 
-import com.company.Player;
-import interfaces.ICommand;
-
-import java.util.Scanner;
-
-public class BasicCommand implements ICommand {
+public class Command{
 
     String commandName;
     String commandDescription;
 
-    protected BasicCommand(){
+    protected Command(){
 
     }
 
-    protected BasicCommand(String commandName,String commandDescription){
+    protected Command(String commandName, String commandDescription){
         this.commandName = commandName;
         this.commandDescription = commandDescription;
     }
-    @Override
+    //@Override
     public void Execute(){
         System.out.println("BASE CLASS");
     }
 
-    @Override
+    //@Override
     public String GetCommandName(){
         return  commandName;
     }
 
-    @Override
+    //@Override
     public String GetCommandDescription(){return commandDescription;}
 }
