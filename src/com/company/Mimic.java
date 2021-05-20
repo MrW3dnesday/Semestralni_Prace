@@ -47,12 +47,13 @@ public class Mimic extends Item implements IItem {
                     hasMimic = true;
                 }
             }
-            currentRoom.OnItemRemove(this.itemName);
-            currentRoom = newRoom;
+
 
             if(hasMimic){
                 OnMove();
             }else{
+                currentRoom.OnItemRemove(this.itemName);
+                currentRoom = newRoom;
                 ChangeForm();
                 currentRoom.AddItemInRoom(this);
             }
