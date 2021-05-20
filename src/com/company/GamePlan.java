@@ -10,7 +10,7 @@ import items.KeyCard;
 import items.Medkit;
 import rooms.Bridge;
 
-import java.security.Key;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Locale;
@@ -165,7 +165,7 @@ public class GamePlan {
         temp += "=====================================\n";
         for(String key: commands.keySet()){
             Command command = commands.get(key);
-            temp += command.GetCommandName() + " - " + command.GetCommandDescription() + "\n";
+            temp +=command.GetCommandDescription() + " - " + command.GetCommandName() + "\n";
         }
         temp = temp.substring(0,temp.length()-1);
         temp += "\n=====================================";
