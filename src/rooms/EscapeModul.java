@@ -1,6 +1,7 @@
 package rooms;
 
 import base.classes.BasicRoom;
+import com.company.GamePlan;
 import com.company.UserInput;
 import interfaces.IItem;
 
@@ -9,7 +10,7 @@ public class EscapeModul extends BasicRoom {
     String code;
 
     public EscapeModul(String roomName,String roomDescription,String code){
-        super(roomName,roomDescription);
+        super(roomName,roomDescription,"modul");
         this.code = code;
     }
 
@@ -19,7 +20,8 @@ public class EscapeModul extends BasicRoom {
             System.out.print("Zadejte startovací kód: " );
             String enteredCode = UserInput.ReadUserInput();
             if(enteredCode.equals(code)){
-                return "Připravte se ke startu. Prosím připoutejte se.";
+                GamePlan.run = false;
+                return "Připravte se ke startu. Prosím připoutejte se." + "\n" + "Úspěšně se ti povedlo z lodi útéct.\nV jediné co doufáš, že na tu loď už nikdo nikdy nevstoupí.\nA že její tajemství v ní budou zapomenuta.";
             }else{
                 return "Byl zadán špatný kód. Prosím akci opakujte.";
             }

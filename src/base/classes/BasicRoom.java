@@ -9,6 +9,7 @@ public class BasicRoom{
     //declare
     protected String roomName;
     protected String roomDescription;
+    protected String roomEngineName;
     protected HashMap<String,LinkedList<IItem>>itemsInRoom;
     protected HashMap<String,BasicRoom> connectedRooms;
 
@@ -19,18 +20,12 @@ public class BasicRoom{
     }
 
     //constructor for testing
-    public BasicRoom(String roomName, String roomDescription){
+    public BasicRoom(String roomName, String roomDescription,String roomEngineName){
         this.itemsInRoom = new HashMap<String, LinkedList<IItem>>();
         this.connectedRooms = new HashMap<String,BasicRoom>();
         this.roomName = roomName;
         this.roomDescription = roomDescription;
-    }
-    //constructor for game plan
-    public BasicRoom(HashMap<String,IItem> generatedListOfItems,HashMap<String,BasicRoom> connectedRooms, String roomName,String roomDescription){
-        this.itemsInRoom = new HashMap<String, LinkedList<IItem>>();
-        this.connectedRooms = new HashMap<String,BasicRoom>();
-        this.roomName = roomName;
-        this.roomDescription = roomDescription;
+        this.roomEngineName = roomEngineName;
     }
 
     //Return in one string all of the items in the room
@@ -79,6 +74,10 @@ public class BasicRoom{
 
     public String GetRoomName(){
         return  roomName;
+    }
+
+    public String GetRoomEngineName(){
+        return roomEngineName;
     }
 
     public IItem OnItemRemove(String itemName){

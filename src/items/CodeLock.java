@@ -14,4 +14,9 @@ public class CodeLock extends Item implements IItem {
         OnInteractionReturn temp = new OnInteractionReturn(true,"Asi to po mě bude chtít kód." + "\n");
         return temp;
     }
+
+    @Override
+    public String OnItemPutInBackpack() {
+        return itemName + " to z té stěny nesundám.";
+    }
 }

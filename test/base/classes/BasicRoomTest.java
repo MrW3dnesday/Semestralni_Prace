@@ -7,7 +7,7 @@ class BasicRoomTest {
     @org.junit.jupiter.api.Test
     void showItemsInRoom() {
         Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
-        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...");
+        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...","entry");
         entry.AddItemInRoom(cup);
 
         assertEquals("|Hrnek 1x| ",entry.ShowItemsInRoom());

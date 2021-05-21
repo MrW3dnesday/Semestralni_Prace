@@ -21,7 +21,7 @@ public class GamePlan {
     Scanner scanner;
 
     public static HashMap<String,IItem> generatedItems;
-    HashMap<String,BasicRoom> generatedRooms;
+    public static HashMap<String,BasicRoom> generatedRooms;
     public static HashMap<String,Command> commands;
     public static LinkedList<Mimic> mimics;
     public static boolean run;
@@ -40,7 +40,100 @@ public class GamePlan {
 
     }
 
+    public void NUnitINIT(){
+
+    }
+
+
     public void Init(){
+        Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
+        Item picture = new Item("Obrázek", "Vypadá to jako fotka rodiny.", "picture",true);
+        Item box = new Item("Krabička","To vypadá, že kdysi v tom měl někdo svačinu.", "box",true);
+        Item record = new Item("Záznam","Něco se tu píše: \"Všechny nás to dostalo, nikdy nevíme co je to za předmět, \nale jakmile s tím začneme něco dělat tak se to hned změní a zabijeto někoho znás.\nKód je jako rok na Zemi...","record",true);
+        Item glass = new Item("Sklenice","Obyčejná sklenička, asi ze skla","glass",true);
+        Item pistol = new Item("Pistole", "Tu musel mít člen ochranky, bohužel je rozbitá","pistol",true);
+        Item coin = new Item("Mince","Kéž by tu byl automat, koupil bych si limonádu","coin",true);
+
+        Crowbar crowbar = new Crowbar("Páčidlo", "Tohle by mohlo něco rozbít.");
+        Medkit medkit = new Medkit("Medkit","Věřím, že tohle mi zachrání život.");
+        KeyCard keyCard = new KeyCard("Karta","Kdybych ji někde mohl použít, určitě to něco udělá.");
+
+        generatedItems.put(cup.GetItemName(),cup);
+        generatedItems.put(box.GetItemName(),box);
+        generatedItems.put(picture.GetItemName(),picture);
+        generatedItems.put(record.GetItemName(),record);
+        generatedItems.put(pistol.GetItemName(),pistol);
+        generatedItems.put(coin.GetItemName(),coin);
+        generatedItems.put(crowbar.GetItemName(),crowbar);
+        generatedItems.put(medkit.GetItemName(),medkit);
+        generatedItems.put(keyCard.GetItemName(),keyCard);
+
+
+        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...","entry");
+        BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...","medical");
+        BasicRoom lobby = new BasicRoom("Lobby","Kdysi tudy musela procházet kvanta lidí.","lobby");
+        BasicRoom generator = new BasicRoom("Generátor","Tady to muselo pohánět celou loď, chudák ten v rohu...\nJen se snažil přežít...","generator");
+
+        Bridge bridge = new Bridge("Můstek","Tady to vypadá jako by odtud veleli celý lodi.\nTřeba, když najdu kartu tak tu s ní budu moc něco otevřít.","lobby");
+
+        entry.AddItemInRoom(cup);
+        entry.AddItemInRoom(picture);
+
+        entry.AddConnectedRoom(medical);
+
+        medical.AddItemInRoom(record);
+        medical.AddItemInRoom(cup);
+        medical.AddItemInRoom(cup);
+
+        medical.AddConnectedRoom(entry);
+        medical.AddConnectedRoom(lobby);
+
+        lobby.AddItemInRoom(box);
+        lobby.AddItemInRoom(glass);
+        lobby.AddItemInRoom(coin);
+
+
+        lobby.AddConnectedRoom(medical);
+        lobby.AddConnectedRoom(bridge);
+        lobby.AddConnectedRoom(generator);
+
+        generator.AddItemInRoom(keyCard);
+        generator.AddItemInRoom(pistol);
+
+        generator.AddConnectedRoom(lobby);
+
+        bridge.AddItemInRoom(crowbar);
+        bridge.AddItemInRoom(medkit);
+        bridge.AddItemInRoom(box);
+
+        bridge.AddConnectedRoom(lobby);
+
+        generatedRooms.put(entry.GetRoomEngineName(),entry);
+        generatedRooms.put(medical.GetRoomEngineName(),medical);
+        generatedRooms.put(lobby.GetRoomEngineName(),lobby);
+        generatedRooms.put(generator.GetRoomEngineName(),generator);
+        generatedRooms.put(bridge.GetRoomEngineName(),bridge);
+
+        Mimic mimic1 = new Mimic("MIMIC","MIMIC",bridge);
+        Mimic mimic2 = new Mimic("MIMIC","MIMIC",lobby);
+        Mimic mimic3 = new Mimic("MIMIC","MIMIC",generator);
+        mimic1.OnMove();
+        mimic2.OnMove();
+        mimic3.OnMove();
+
+        mimics.add(mimic1);
+        mimics.add(mimic2);
+        mimics.add(mimic3);
+
+        InitCommands();
+
+        player = new Player(entry);
+
+        run = true;
+        restart = false;
+        testRun = false;
+
+        Play();
 
     }
     public void TestInit(){
@@ -52,10 +145,17 @@ public class GamePlan {
         Medkit medkit = new Medkit("Medkit","Věřím, že tohle mi zachrání život.");
         KeyCard keyCard = new KeyCard("Karta","Kdybych ji někde mohl použít, určitě to něco udělá.");
 
-        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...");
-        BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...");
+        generatedItems.put(cup.GetItemName(),cup);
+        generatedItems.put(box.GetItemName(),box);
+        generatedItems.put(picture.GetItemName(),picture);
+        generatedItems.put(crowbar.GetItemName(),crowbar);
+        generatedItems.put(medkit.GetItemName(),medkit);
+        generatedItems.put(keyCard.GetItemName(),keyCard);
 
-        Bridge bridge = new Bridge("Můstek","Tady to vypadá jako by odtud veleli celý lodi.\nTřeba, když najdu kartu tak tu s ní budu moc něco otevřít.");
+        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...","entry");
+        BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...","medical");
+
+        Bridge bridge = new Bridge("Můstek","Tady to vypadá jako by odtud veleli celý lodi.\nTřeba, když najdu kartu tak tu s ní budu moc něco otevřít.","bridge");
 
         entry.AddItemInRoom(cup);
         entry.AddItemInRoom(box);
@@ -76,12 +176,9 @@ public class GamePlan {
 
         bridge.AddConnectedRoom(medical);
 
-        generatedItems.put(cup.GetItemName(),cup);
-        generatedItems.put(box.GetItemName(),box);
-        generatedItems.put(picture.GetItemName(),picture);
-        generatedItems.put(crowbar.GetItemName(),crowbar);
-        generatedItems.put(medkit.GetItemName(),medkit);
-        generatedItems.put(keyCard.GetItemName(),keyCard);
+        generatedRooms.put(entry.GetRoomEngineName(),entry);
+        generatedRooms.put(medical.GetRoomEngineName(),medical);
+        generatedRooms.put(bridge.GetRoomEngineName(),bridge);
 
         Mimic mimic1 = new Mimic("MIMIC","MIMIC",bridge);
         Mimic mimic2 = new Mimic("MIMIC","MIMIC",medical);
