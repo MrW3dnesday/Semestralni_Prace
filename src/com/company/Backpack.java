@@ -30,9 +30,10 @@ public class Backpack {
      * @return Vrací příznak provedení
      */
     public char OnPutIn(IItem item){
-        //check if item can be put in backpack
+        //check if itam can be put in backpack
         if(item.CanBeInBackpack()){
             //check if backpack is full
+            //check if backapck is full
             if(itemsInBackpack.size() <= maxItems){
                 //check if item is already in backpack
                 if(!itemsInBackpack.containsKey(item.GetItemName())){
