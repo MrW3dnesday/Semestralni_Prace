@@ -26,7 +26,7 @@ public class Main {
 
         if(command.equals("TEST")){
             gamePlan.TestInit();
-        }else{
+        } else{
             gamePlan.Init();
         }
 
