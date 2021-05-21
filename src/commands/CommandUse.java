@@ -6,6 +6,19 @@ import com.company.GamePlan;
 import com.company.UserInput;
 import interfaces.IItem;
 
+/*
+ *  Třída CommandAttack -
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
+
+
+
+
 public class CommandUse extends Command{
     public CommandUse(String commandName, String commandDescription){
         super(commandName,commandDescription);

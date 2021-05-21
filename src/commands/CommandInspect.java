@@ -7,6 +7,17 @@ import interfaces.IItem;
 
 import java.util.Locale;
 
+/*
+ *  Třída CommandInspect -
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
+
+
 public class CommandInspect extends Command{
     public CommandInspect(String commandName, String commandDescription){
         super(commandName,commandDescription);

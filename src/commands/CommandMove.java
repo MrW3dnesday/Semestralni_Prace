@@ -7,6 +7,17 @@ import base.classes.Command;
 
 public class CommandMove extends Command{
 
+    /*
+     *  Třída CommandAttack -
+     *
+     *
+     *
+     *  @author     Dan Šebek
+     *  @version    0.01a
+     *  @created    květen 2021
+     */
+
+
     public CommandMove(String commandName,String commandDescription){
         super(commandName,commandDescription);
     }

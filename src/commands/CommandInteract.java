@@ -6,6 +6,16 @@ import com.company.UserInput;
 import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
+/*
+ *  Třída CommandInteract -
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
+
 public class CommandInteract extends Command{
     public CommandInteract(String commandName,String commandDescription){
         super(commandName,commandDescription);
