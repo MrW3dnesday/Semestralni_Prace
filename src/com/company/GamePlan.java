@@ -40,7 +40,33 @@ public class GamePlan {
 
     }
 
+    public GamePlan(){
+        this.scanner = new Scanner(System.in);
+
+        generatedItems = new HashMap<String,IItem>();
+        generatedRooms = new HashMap<String,BasicRoom>();
+        commands = new HashMap<String, Command>();
+        mimics = new LinkedList<Mimic>();
+
+    }
+
     public void NUnitINIT(){
+
+        Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
+
+        generatedItems.put(cup.GetItemName(),cup);
+
+        BasicRoom entry = new BasicRoom("Vstup", "Nic moc tu není...","entry");
+        BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...","medical");
+
+        entry.AddConnectedRoom(medical);
+
+        medical.AddConnectedRoom(entry);
+
+        generatedRooms.put(entry.GetRoomEngineName(),entry);
+        generatedRooms.put(medical.GetRoomEngineName(),medical);
+
+        InitCommands();
 
     }
 

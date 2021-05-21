@@ -1,5 +1,15 @@
 package base.classes;
 
+
+/*
+ *  Třída Command - Nadřazená třída všem příkazům.
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class Command{
 
     String commandName;
@@ -13,16 +23,27 @@ public class Command{
         this.commandName = commandName;
         this.commandDescription = commandDescription;
     }
-    //@Override
+
+    /**
+     * Metoda provede příkaz
+     */
     public void Execute(){
         System.out.println("BASE CLASS");
     }
 
-    //@Override
+    /**
+     * Metoda vrátí název příkazu
+     *
+     *@return Vrací název příkazu
+     */
     public String GetCommandName(){
         return  commandName;
     }
 
-    //@Override
+    /**
+     * Metoda vrátí popis příkazu
+     *
+     *@return Vrací popis příkazu
+     */
     public String GetCommandDescription(){return commandDescription;}
 }
