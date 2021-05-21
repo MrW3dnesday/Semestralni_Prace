@@ -5,7 +5,7 @@ import interfaces.IItem;
 
 /*
  *  Třída Item - Nadřazená třída všem předmětům. Implementuje rozhraní IItem. Slouží pro vytvoření předmětů bez rozšířené funkcionality.
- *  Obsahuje metody pro interakci s předmety
+ *  Obsahuje metody pro interakci s předmety.
  *
  *
  *

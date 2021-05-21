@@ -5,8 +5,8 @@ import interfaces.IItem;
 import java.util.HashMap;
 
 /*
- *  Třída Backpack - Uchovává předměty hráče
- *  Obsahuje metody pro interakci předmětu při interakci s batohem
+ *  Třída Backpack - Uchovává předměty hráče.
+ *  Obsahuje metody pro interakci předmětu při interakci s batohem.
  *
  *
  *
@@ -25,9 +25,9 @@ public class Backpack {
     }
 
     /**
-     * Metoda zajišťuje vložení předmětu do batohu a vrací příznak zda došlo k problému
+     * Metoda zajišťuje vložení předmětu do batohu a vrací příznak zda došlo k problému.
      *
-     * @return Vrací příznak provedení
+     * @return Vrací příznak provedení.
      */
     public char OnPutIn(IItem item){
         //check if itam can be put in backpack
@@ -51,9 +51,9 @@ public class Backpack {
     }
 
     /**
-     * Metoda zjistí zda je v batohu předmět s kterým se dá interagovat
+     * Metoda zjistí zda je v batohu předmět s kterým se dá interagovat.
      *
-     * @return Vrací příznak zda v batohu jsou předemty s který jde nějak interagovat
+     * @return Vrací příznak zda v batohu jsou předemty s který jde nějak interagovat.
      */
     public char HaveInteractableItem(){
         int temp = itemsInBackpack.size();
@@ -65,7 +65,7 @@ public class Backpack {
 
 
     /**
-     * Metoda zajistí vyndání předmětu z batohu
+     * Metoda zajistí vyndání předmětu z batohu.
      *
      * @return Vrací vyndaný předmět
      */
@@ -75,7 +75,7 @@ public class Backpack {
     }
 
     /**
-     * Metoda připraví text
+     * Metoda připraví text.
      *
      * @return Vrací vyndaný předmět
      */

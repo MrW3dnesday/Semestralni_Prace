@@ -12,11 +12,11 @@ class BasicRoomTest {
 
         assertEquals("|Hrnek 1x| ",entry.ShowItemsInRoom());
 
-
     }
 
     @org.junit.jupiter.api.Test
     void showConnectedRooms() {
+
     }
 
     @org.junit.jupiter.api.Test
