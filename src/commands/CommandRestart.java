@@ -3,7 +3,7 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 /*
- *  Třída CommandRestart - Umožňuje hráči vypsat list příkazů během hry.
+ *  Třída CommandRestart - Umožňuje hráči restartovat hru.
  *  Podřazená třídě Command.
  *
  *
@@ -19,13 +19,13 @@ public class CommandRestart extends Command{
     public CommandRestart(String commandName, String commandDescription){
         super(commandName,commandDescription);
     }
-
+    //netusim co sem
     public CommandRestart(){
 
     }
 
     /**
-     * Metoda umožnuje hráči vypsat list příkazů.
+     * Metoda  nastaví hodnotu run na false čímž zastavím algoritmus Play ve třídě GamePlan a pomocí hodnoty restart spustí metodu Init znovu.
      *
      */
     @Override

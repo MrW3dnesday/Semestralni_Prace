@@ -8,7 +8,7 @@ import base.classes.Command;
 public class CommandMove extends Command{
 
     /*
-     *  Třída CommandMove - Umožňuje hráči vypsat list příkazů během hry.
+     *  Třída CommandMove - Umožňuje hráči pohyb po mapě.
      *  Podřazená třídě Command.
      *
      *
@@ -23,7 +23,8 @@ public class CommandMove extends Command{
     }
 
     /**
-     * Metoda umožnuje hráči vypsat list příkazů.
+     * Metoda umožnuje hráči přesun do přidělených místností.
+     * Počítá se špatným inputem hráče.
      *
      */
     @Override

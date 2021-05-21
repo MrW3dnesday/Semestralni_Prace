@@ -6,7 +6,7 @@ import com.company.UserInput;
 import interfaces.IItem;
 
 /*
- *  Třída CommandTakeOutBackpack - Umožňuje hráči vypsat list příkazů během hry.
+ *  Třída CommandTakeOutBackpack - Umožňuje hráči vyndat předměty z batohu  během hry.
  *  Podřazená třídě Command.
  *
  *
@@ -22,7 +22,8 @@ public class CommandTakeOutBackpack extends Command{
     }
 
     /**
-     * Metoda umožnuje hráči vypsat list příkazů.
+     * Metoda volá metodu OnPutIn třídy Backpack.
+     * Počítá jak s možností špatného inputu od hráče nebo  prázdného batohu.
      *
      */
     @Override

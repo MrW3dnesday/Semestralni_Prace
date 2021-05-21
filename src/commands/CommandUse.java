@@ -7,7 +7,7 @@ import com.company.UserInput;
 import interfaces.IItem;
 
 /*
- *  Třída CommandUse - Umožňuje hráči vypsat list příkazů během hry.
+ *  Třída CommandUse - Umožňuje hráči používat předměty které má v batohu.
  *  Podřazená třídě Command.
  *
  *
@@ -25,8 +25,8 @@ public class CommandUse extends Command{
     }
 
     /**
-     * Metoda umožnuje hráči vypsat list příkazů.
-     *
+     * Metoda volá metodu OnUse třídy Item.
+     * Počítá jak s možností špatného inputu od hráče  nebo  batohu  bez  předmětů.
      */
     @Override
     public void Execute(){

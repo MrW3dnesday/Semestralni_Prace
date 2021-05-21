@@ -3,7 +3,7 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 /*
- *  Třída CommandTerminateGame - Umožňuje hráči vypsat list příkazů během hry.
+ *  Třída CommandTerminateGame - Umožňuje hráči vypnout  hru.
  *  Podřazená třídě Command.
  *
  *
@@ -20,7 +20,7 @@ public class CommandTerminateGame extends Command{
     }
 
     /**
-     * Metoda umožnuje hráči vypsat list příkazů.
+     * Metoda  nastaví hodnotu run na false čímž zastavím algoritmus Play ve třídě GamePlan.
      *
      */
     @Override
