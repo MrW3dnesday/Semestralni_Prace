@@ -7,8 +7,8 @@ import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 /*
- *  Třída CommandInteract -
- *
+ *  Třída CommandInteract -  Umožňuje hráči interaktovat s předměty během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -21,6 +21,11 @@ public class CommandInteract extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda volá metodu OnIteract ze třídy Item.
+     * Počítá jak s možností špatného inputu od hráče tak místnosti bez použitelných předmětů.
+     *
+     */
     @Override
     public void Execute(){
         if(GamePlan.GetPlayer().GetCurrentRoom().HaveInteractableItem() == 'Y'){

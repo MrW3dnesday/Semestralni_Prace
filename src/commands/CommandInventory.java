@@ -4,8 +4,8 @@ import base.classes.Command;
 import com.company.GamePlan;
 
 /*
- *  Třída CommandAttack -
- *
+ *  Třída CommandInventory  - Umožňuje hráči zobrazit si inventář během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -18,6 +18,10 @@ public class CommandInventory extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda volá metodu ShowItemsInBackpack ze třídy Backpack.
+     * Počítá s možností batohu bez předmětů.
+     */
     @Override
     public void Execute(){
         if(GamePlan.GetPlayer().GetPlayerBackpack().HaveInteractableItem() == 'Y') {

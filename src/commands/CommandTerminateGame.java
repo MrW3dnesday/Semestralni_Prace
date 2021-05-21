@@ -3,8 +3,8 @@ package commands;
 import base.classes.Command;
 import com.company.GamePlan;
 /*
- *  Třída CommandAttack -
- *
+ *  Třída CommandTerminateGame - Umožňuje hráči vypsat list příkazů během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -19,6 +19,10 @@ public class CommandTerminateGame extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda umožnuje hráči vypsat list příkazů.
+     *
+     */
     @Override
     public void Execute(){
         GamePlan.run = false;

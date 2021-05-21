@@ -8,8 +8,8 @@ import base.classes.Command;
 public class CommandMove extends Command{
 
     /*
-     *  Třída CommandAttack -
-     *
+     *  Třída CommandMove - Umožňuje hráči vypsat list příkazů během hry.
+     *  Podřazená třídě Command.
      *
      *
      *  @author     Dan Šebek
@@ -21,6 +21,11 @@ public class CommandMove extends Command{
     public CommandMove(String commandName,String commandDescription){
         super(commandName,commandDescription);
     }
+
+    /**
+     * Metoda umožnuje hráči vypsat list příkazů.
+     *
+     */
     @Override
     public void Execute() {
         System.out.print(GamePlan.GetPlayer().GetCurrentRoom().ShowConnectedRooms() + "\n" + "Místnost :");

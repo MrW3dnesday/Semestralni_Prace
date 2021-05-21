@@ -17,6 +17,10 @@ public class CommandHelp extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda umožnuje hráči vypsat list příkazů.
+     *
+     */
     @Override
     public void Execute(){
         System.out.print(GamePlan.GetUserHelp());

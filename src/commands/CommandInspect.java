@@ -8,8 +8,8 @@ import interfaces.IItem;
 import java.util.Locale;
 
 /*
- *  Třída CommandInspect -
- *
+ *  Třída CommandInspect - Umožňuje hráči prohlédnout  si předmět během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -23,6 +23,10 @@ public class CommandInspect extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda umožnuje hřáči aby si prohlédl předmět buďto v místnsoti nebo v batohu.
+     * Počítá jak s možností špatného inputu od hráče tak místnosti nebo batohu bez předmětů.
+     */
     @Override
     public void Execute(){
         if(GamePlan.GetPlayer().GetCurrentRoom().HaveInteractableItem() == 'Y' && GamePlan.GetPlayer().GetCurrentRoom().HaveInteractableItem() == 'Y') {

@@ -6,8 +6,8 @@ import com.company.UserInput;
 import interfaces.IItem;
 
 /*
- *  Třída CommandAttack -
- *
+ *  Třída CommandTakeOutBackpack - Umožňuje hráči vypsat list příkazů během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -21,6 +21,10 @@ public class CommandTakeOutBackpack extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda umožnuje hráči vypsat list příkazů.
+     *
+     */
     @Override
     public void Execute(){
         if(GamePlan.GetPlayer().GetPlayerBackpack().HaveInteractableItem() == 'Y'){

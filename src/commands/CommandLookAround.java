@@ -4,8 +4,8 @@ import base.classes.Command;
 import com.company.GamePlan;
 
 /*
- *  Třída CommandAttack -
- *
+ *  Třída CommandInventory  - Umožňuje hráči rozhlédnout se po místnosti během hry.
+ *  Podřazená třídě Command.
  *
  *
  *  @author     Dan Šebek
@@ -18,6 +18,10 @@ public class CommandLookAround extends Command{
         super(commandName,commandDescription);
     }
 
+    /**
+     * Metoda volá metodu ShowRoomInfo ze třídy Room.
+     *
+     */
     @Override
     public void Execute(){
         System.out.print(GamePlan.GetPlayer().GetCurrentRoom().ShowRoomInfo());
