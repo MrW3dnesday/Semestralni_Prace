@@ -5,7 +5,7 @@ import interfaces.IItem;
 import java.util.*;
 
 /*
- *  Třída BasicRoom - Nadřazená třída všem místnostem.
+ *  Třída BasicRoom - Nadřazená třída všem místnostem. Slouží k vytvoření místostní bez rozšírené funkcionality.
  *  Obsahuje metody pro práci s předměty v místnosti, připojenými místnostmi a interakci s předměty
  *
  *

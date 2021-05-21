@@ -3,6 +3,7 @@ package base.classes;
 
 /*
  *  Třída Command - Nadřazená třída všem příkazům.
+ *  Obsahuje provedení příkazu a zjištění informací o příkazu
  *
  *
  *

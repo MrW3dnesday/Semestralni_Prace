@@ -16,6 +16,16 @@ import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
 
+/*
+ *  Třída GamePlan - Provadí inicializaci a samotnou hru
+ *  Obsahuje metody pro inicializaci a spuštění hry
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class GamePlan {
 
     Scanner scanner;
@@ -49,7 +59,10 @@ public class GamePlan {
         mimics = new LinkedList<Mimic>();
 
     }
-
+    /**
+     * Metoda zajišťuje inicializaci pro NUnit testy
+     *
+     */
     public void NUnitINIT(){
 
         Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
@@ -70,7 +83,10 @@ public class GamePlan {
 
     }
 
-
+    /**
+     * Metoda zajišťuje inicializaci při normálním spuštění
+     *
+     */
     public void Init(){
         Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
         Item picture = new Item("Obrázek", "Vypadá to jako fotka rodiny.", "picture",true);
@@ -104,18 +120,25 @@ public class GamePlan {
 
         entry.AddItemInRoom(cup);
         entry.AddItemInRoom(picture);
+        entry.AddItemInRoom(glass);
 
         entry.AddConnectedRoom(medical);
 
         medical.AddItemInRoom(record);
         medical.AddItemInRoom(cup);
         medical.AddItemInRoom(cup);
+        medical.AddItemInRoom(glass);
+        medical.AddItemInRoom(picture);
+        medical.AddItemInRoom(box);
 
         medical.AddConnectedRoom(entry);
         medical.AddConnectedRoom(lobby);
 
         lobby.AddItemInRoom(box);
         lobby.AddItemInRoom(glass);
+        lobby.AddItemInRoom(coin);
+        lobby.AddItemInRoom(cup);
+        lobby.AddItemInRoom(picture);
         lobby.AddItemInRoom(coin);
 
 
@@ -125,12 +148,18 @@ public class GamePlan {
 
         generator.AddItemInRoom(keyCard);
         generator.AddItemInRoom(pistol);
+        generator.AddItemInRoom(cup);
+        generator.AddItemInRoom(box);
 
         generator.AddConnectedRoom(lobby);
 
         bridge.AddItemInRoom(crowbar);
         bridge.AddItemInRoom(medkit);
         bridge.AddItemInRoom(box);
+        bridge.AddItemInRoom(cup);
+        bridge.AddItemInRoom(cup);
+        bridge.AddItemInRoom(glass);
+        bridge.AddItemInRoom(picture);
 
         bridge.AddConnectedRoom(lobby);
 
@@ -162,6 +191,10 @@ public class GamePlan {
         Play();
 
     }
+    /**
+     * Metoda zajišťuje inicializaci při testovací hře
+     *
+     */
     public void TestInit(){
         Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
         Item picture = new Item("Obrázek", "Vypadá to jako fotka rodiny.", "picture",true);
@@ -227,7 +260,10 @@ public class GamePlan {
     }
 
 
-
+    /**
+     * Metoda zajišťuje čtení a zpracování příkazů od uživatele
+     *
+     */
     private void Play(){
 
         System.out.print(GetUserHelp());
@@ -257,6 +293,10 @@ public class GamePlan {
         }
     }
 
+    /**
+     * Metoda zajišťuje inicializaci základních příkazů
+     *
+     */
     private void InitCommands(){
         CommandHelp commandHelp = new CommandHelp("HELP","Show all commands");
         CommandMove commandMove = new CommandMove("MOVE","Move to other room.");
@@ -283,6 +323,11 @@ public class GamePlan {
         commands.put(commandInteract.GetCommandName(),commandInteract);
     }
 
+    /**
+     * Metoda připravý text pro výpis příkazů
+     *
+     * @return Vrací připravený text
+     */
     public static String GetUserHelp(){
         String temp = "";
         temp += "=====================================\n";
@@ -290,15 +335,24 @@ public class GamePlan {
             Command command = commands.get(key);
             temp +=command.GetCommandDescription() + " - " + command.GetCommandName() + "\n";
         }
+        //remove last "\n"
         temp = temp.substring(0,temp.length()-1);
         temp += "\n=====================================";
         return temp;
     }
 
+    /**
+     * Metoda vrátí hráče
+     *
+     * @return Vrací hráče
+     */
     public static Player GetPlayer(){
         return player;
     }
 
+    /**
+     * Metoda pohne se všemi MIMIC v herním světě
+     */
     public static void MoveMimics(){
         for(Mimic mimic:mimics){
             mimic.OnMove();

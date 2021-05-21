@@ -5,10 +5,18 @@ import base.classes.Item;
 import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Random;
 
+/*
+ *  Třída Mimic - Slouží k vytvoření mimic které se samovolně pohybuji po mapě a berou na sebe podobu předmětů. Odděděná od Item. Implementuje IItem.
+ *  Obsahuje metody pro pohyb a změnu formy a @Override pro některé metody od třídy Item.
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class Mimic extends Item implements IItem {
 
     public BasicRoom currentRoom;
@@ -18,12 +26,16 @@ public class Mimic extends Item implements IItem {
         this.currentRoom = currentRoom;
     }
 
-    public void ChangeForm(){
+    /**
+     * Metoda zajišťuje přesun Mimic do další místnosti a změnu jeji formy na předmět který v místnosti jěště není
+     *
+     */
+    private void ChangeForm(){
         IItem[] possibleItems = GamePlan.generatedItems.values().toArray(new IItem[GamePlan.generatedItems.size()]);
         Random random = new Random();
         boolean validForm = false;
         IItem temp;
-        while(!validForm){
+        for(int i = 0;i<possibleItems.length;i++){
             temp = possibleItems[random.nextInt(possibleItems.length)];
             if(!currentRoom.GetItemsInRoom().containsKey(temp.GetItemName())){
                 this.itemName = temp.GetItemName();
@@ -32,6 +44,18 @@ public class Mimic extends Item implements IItem {
                 break;
             }
         }
+        if(!validForm){
+            OnMove();
+        }
+        /*while(!validForm){
+            temp = possibleItems[random.nextInt(possibleItems.length)];
+            if(!currentRoom.GetItemsInRoom().containsKey(temp.GetItemName())){
+                this.itemName = temp.GetItemName();
+                this.itemDescription = temp.GetItemDescription();
+                validForm = true;
+                break;
+            }
+        }*/
     }
 
     public void OnMove(){

@@ -4,7 +4,7 @@ import data.structures.OnInteractionReturn;
 import interfaces.IItem;
 
 /*
- *  Třída Item - Nadřazená třída všem předmětům. Implementuje rozhraní IItem.
+ *  Třída Item - Nadřazená třída všem předmětům. Implementuje rozhraní IItem. Slouží pro vytvoření předmětů bez rozšířené funkcionality.
  *  Obsahuje metody pro interakci s předmety
  *
  *

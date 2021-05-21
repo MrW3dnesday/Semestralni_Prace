@@ -33,7 +33,6 @@ public class Backpack {
         //check if itam can be put in backpack
         if(item.CanBeInBackpack()){
             //check if backpack is full
-            //check if backapck is full
             if(itemsInBackpack.size() <= maxItems){
                 //check if item is already in backpack
                 if(!itemsInBackpack.containsKey(item.GetItemName())){
