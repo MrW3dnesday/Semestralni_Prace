@@ -63,6 +63,7 @@ public class GamePlan {
      */
     public void NUnitINIT(){
 
+
         Item cup = new Item("Hrnek","Obyčejný hrníček, asi z keramiky.","cup",true);
 
         generatedItems.put(cup.GetItemName(),cup);
@@ -71,6 +72,7 @@ public class GamePlan {
         BasicRoom medical = new BasicRoom("Ošetřovna","Vypadá to tak, že tady asi někoho ošetřovali...","medical");
 
         entry.AddConnectedRoom(medical);
+        entry.AddItemInRoom(cup);
 
         medical.AddConnectedRoom(entry);
 
