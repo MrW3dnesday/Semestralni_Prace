@@ -107,7 +107,7 @@ public class Item implements IItem {
      */
     @Override
     public String OnItemTakeOutBackpack(){
-        return itemName +  " jsi vyndal z batohu";
+        return itemName +  " jsi vyndal z batohu.";
     }
 
     /**
@@ -117,7 +117,7 @@ public class Item implements IItem {
      */
     @Override
     public String OnAttack(){
-        return  itemName + " jsi rozmlátil na prach";
+        return  itemName + " jsi rozmlátil na prach.";
     }
 
     /**
