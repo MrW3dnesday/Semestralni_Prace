@@ -1,6 +1,7 @@
 package base.classes;
 
 import data.structures.OnInteractionReturn;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,13 +18,19 @@ class ItemTest {
     void onUse() {
 
         OnInteractionReturn temp = new OnInteractionReturn(false,cup.GetItemName() + ". Tohle asi nemá žádné využití.");
-        assertEquals(temp,cup.OnUse());
+        if(temp.GetInteractText().equals(cup.OnUse().GetInteractText()) && temp.GetInteractWithRoom() == cup.OnUse().GetInteractWithRoom()){
+            return;
+        }
+        Assertions.fail();
     }
 
     @Test
     void onInteract() {
         OnInteractionReturn temp = new OnInteractionReturn(false, this.cup.GetItemName() + " s tím toho moc neudělám.");
-        assertEquals(temp,cup.OnInteract());
+        if(temp.GetInteractText().equals(cup.OnInteract().GetInteractText()) && temp.GetInteractWithRoom() == cup.OnInteract().GetInteractWithRoom()){
+            return;
+        }
+        Assertions.fail();
 
 
     }
