@@ -298,17 +298,17 @@ public class GamePlan {
      *
      */
     private void InitCommands(){
-        CommandHelp commandHelp = new CommandHelp("HELP","Show all commands");
-        CommandMove commandMove = new CommandMove("MOVE","Move to other room.");
-        CommandTerminateGame commandTerminateGame = new CommandTerminateGame("TERMINATE","Terminates the game.");
-        CommandPutInBackpack commandPutInBackpack = new CommandPutInBackpack("PUT IN","Put item from room to backpack.");
-        CommandTakeOutBackpack commandTakeOutBackpack = new CommandTakeOutBackpack("TAKE OUT","Take out item from backpack.");
-        CommandLookAround commandLookAround = new CommandLookAround("LOOK AROUND","Get info about room you are inside.");
-        CommandInspect commandInspect = new CommandInspect("INSPECT","Inspect item in room or backpack.");
-        CommandUse commandUse = new CommandUse("USE","Use item, or use it to interact with with the item in something room.");
-        CommandInventory commandInventory = new CommandInventory("INV","Show content of your backpack");
-        CommandRestart commandRestart = new CommandRestart("RESTART","Restart game.");
-        CommandInteract commandInteract = new CommandInteract("INTERACT","Interact with item in room.");
+        CommandHelp commandHelp = new CommandHelp("POMOC","Vypíše všechny dostupné příkazy.");
+        CommandMove commandMove = new CommandMove("JÍT","Přesuň se do další místnosti.");
+        CommandTerminateGame commandTerminateGame = new CommandTerminateGame("UKONČIT","Vypne hru.");
+        CommandPutInBackpack commandPutInBackpack = new CommandPutInBackpack("ZVEDNOUT","Zvdeni předmět a vlož si jej do batohu.");
+        CommandTakeOutBackpack commandTakeOutBackpack = new CommandTakeOutBackpack("VYNDAT","Vyndej předmět z batohu a vlož jej do místnosti.");
+        CommandLookAround commandLookAround = new CommandLookAround("ROZHLÉDNOUT SE","Zjisti informace o místnosti v které jsi.");
+        CommandInspect commandInspect = new CommandInspect("PROHLÉDNOUT SI","Prohlédni si předmět v místnosti nebo v batohu.");
+        CommandUse commandUse = new CommandUse("POUŽÍT","Použí předmět v místnosti.");
+        CommandInventory commandInventory = new CommandInventory("BATOH","Prohlédni si co máš v batohu.");
+        CommandRestart commandRestart = new CommandRestart("RESTART","Restartuj hru.");
+        CommandInteract commandInteract = new CommandInteract("INTERAKCE","Interaguj s předmět v místnosi.");
 
         commands.put(commandHelp.GetCommandName(),commandHelp);
         commands.put(commandLookAround.GetCommandName(),commandLookAround);

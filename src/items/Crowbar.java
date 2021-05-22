@@ -29,7 +29,7 @@ public class Crowbar extends Item implements IItem {
      */
     @Override
     public String OnItemPutInBackpack(){
-        CommandAttack commandAttack = new CommandAttack("Útok","Rozmlať předmět na prach");
+        CommandAttack commandAttack = new CommandAttack("ZAÚTOČIT","Rozmlať předmět na prach");
         GamePlan.commands.put(commandAttack.GetCommandName(),commandAttack);
         return "Nový příkaz: " + commandAttack.GetCommandName() + " - " + commandAttack.GetCommandDescription() + "\n" + super.OnItemPutInBackpack();
     }
@@ -41,7 +41,7 @@ public class Crowbar extends Item implements IItem {
      */
     @Override
     public String OnItemTakeOutBackpack(){
-        Command command = GamePlan.commands.remove("Útok");
+        Command command = GamePlan.commands.remove("ZAÚTOČIT");
         return  "Příkaz odebrán: " + command.GetCommandName() + "\n" + super.OnItemTakeOutBackpack();
     }
 
