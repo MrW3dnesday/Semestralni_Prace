@@ -79,6 +79,8 @@ public class GamePlan {
 
         InitCommands();
 
+        player = new Player(entry);
+
     }
 
     /**

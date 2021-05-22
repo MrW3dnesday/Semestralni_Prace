@@ -5,6 +5,16 @@ import com.company.GamePlan;
 import com.company.UserInput;
 import interfaces.IItem;
 
+/*
+ *  Třída EscapeModul - Odděděná od třídy BasicRoom. Slouží k vytvoření únikového modulu.
+ *  Obsahuje @Override OnItemInteract
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class EscapeModul extends BasicRoom {
 
     String code;
@@ -14,6 +24,11 @@ public class EscapeModul extends BasicRoom {
         this.code = code;
     }
 
+    /**
+     * Metoda vrátí text při pinterakci s předmětem v místnosti, pokud je to zámek s kódem a je zadána správná kombinace hra se ukončí
+     *
+     *@return Vrací text při interkaci s předmětem v místnosti
+     */
     @Override
     public String OnItemInteract(IItem item){
         if(item.GetItemEngineName().equals("codelock")){

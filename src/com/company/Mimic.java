@@ -111,7 +111,7 @@ public class Mimic extends Item implements IItem {
     }
 
     /**
-     * Metoda vrátí popis předmětu @Override
+     * Metoda vrátí popis předmětu a zaútočí na hráče@Override
      *
      *@return Vrací popis předmětu
      */

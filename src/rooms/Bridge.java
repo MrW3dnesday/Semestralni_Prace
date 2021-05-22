@@ -5,6 +5,16 @@ import com.company.GamePlan;
 import interfaces.IItem;
 import items.CodeLock;
 
+/*
+ *  Třída Bridge - Odděděná od třídy BasicRoom. Slouží k vytvoření můstku.
+ *  Obsahuje @Override OnItemUse
+ *
+ *
+ *
+ *  @author     Dan Šebek
+ *  @version    0.01a
+ *  @created    květen 2021
+ */
 public class Bridge extends BasicRoom {
 
     String modulConnectsTo;
@@ -14,6 +24,11 @@ public class Bridge extends BasicRoom {
         this.modulConnectsTo = modulConnectTo;
     }
 
+    /**
+     * Metoda vrátí text při použítí předmetu v místnosti, při použití karty přidá další místnost do herního plánu @Override
+     *
+     *@return Vrací text při použití předmětu v místnosti
+     */
     @Override
     public String OnItemUse(IItem item){
         if(item.GetItemEngineName().equals("keycard")){
